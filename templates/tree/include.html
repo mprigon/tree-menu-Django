@@ -1,0 +1,49 @@
+<h4>Дерево меню inclusion tag</h4>
+{% for i in menu_result %}
+<ul>
+    {% if i.root %}
+        {{ i.item_name }}
+        <a href="/{{ i.path }}">{{ i.path }}</a>
+        {% if i.out %}
+            {% for j in i.out_list %}
+                </ul>
+            {% endfor %}
+        {% endif %}
+    {% elif i.in %}
+        <ul>
+            <li>
+                {{ i.item_name }}
+                <a href="/{{ i.path }}">{{ i.path }}</a>
+            </li>
+            {% if i.out %}
+                {% for j in i.out_list %}
+                    </ul>
+                {% endfor %}
+            {% endif %}
+     {% elif i.same_level %}
+            <li>
+                {{ i.item_name }}
+                <a href="/{{ i.path }}">{{ i.path }}</a>
+            </li>
+            {% if i.out %}
+                {% for j in i.out_list %}
+                    </ul>
+                {% endfor %}
+            {% endif %}
+     {% elif i.out %}
+        {% for j in i.out_list %}
+            </ul>
+        {% endfor %}
+        <li>
+            {{ i.item_name }}
+            <a href="/{{ i.path }}">{{ i.path }}</a>
+        </li>
+    {% else %}
+        <li>
+            Неклассифицируемое значение
+            {{ i.item_name }}
+            <a href="/{{ i.path }}">{{ i.path }}</a>
+        </li>
+    {% endif %}
+</ul>
+{% endfor %}

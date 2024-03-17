@@ -1,0 +1,22 @@
+{% extends 'default/default.html' %}
+{% load tree_tags %}
+
+{% block title %}
+Item details
+{% endblock title %}
+
+{% block content %}
+
+<h3>Страница выбранного пункта меню</h3>
+{% if id_result %}
+    {{ sql_details }}
+{% else %}
+    <h4>В базе отсутствует path с введенным url</h4>
+{% endif %}
+
+<!--{% draw_menu sql_raw_result %}-->
+
+<h4>Дополненный SQL для построения дерева меню</h4>
+{{ sql_raw_result }}
+
+{% endblock content %}

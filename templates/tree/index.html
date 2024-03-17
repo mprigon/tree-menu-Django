@@ -1,0 +1,24 @@
+{% extends 'default/default.html' %}
+{% load tree_tags %}
+
+{% block title %}
+Home page
+{% endblock title %}
+
+{% block content %}
+<h3>Домашняя страница</h3>
+
+<!--<h4>simple tag</h4>
+{% get_items as items_all %}
+{% for i in items_all %}
+{{ i }}
+{% endfor %}-->
+
+<!--{% draw_menu sql_raw_result %}-->
+
+<h4>Дополненный SQL для построения дерева меню</h4>
+{% for i in sql_raw_result %}
+{{ i }}
+{% endfor %}
+
+{% endblock content %}

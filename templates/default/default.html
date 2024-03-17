@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load tree_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'favicon.ico' %}" />
+</head>
+<body>
+    {% block nav %}
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Домашняя страница</a>
+            </li>
+<!--            <li class="nav-item">
+                <a class="nav-link" href="#">Пункт меню</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Пункт меню</a>
+                <ul class="nav-link">
+                    <li><a class="nav-link" href="#">Action</a></li>
+                    <li>
+                        <a class="nav-link" href="#">Another action</a>
+                        <ul class="nav-link">
+                            <li><a class="nav-link" href="#">Sub Action</a></li>
+                            <li><a class="nav-link" href="#">Another Sub action</a></li>
+                            <li><a class="nav-link" href="#">Something Sub else here</a></li>
+                         </ul>
+                    </li>
+                    <li><a class="nav-link" href="#">Something else here</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Пункт меню</a>
+            </li>-->
+            <li class="nav-item">
+                <a class="nav-link" href="/admin">Администрирование</a>
+            </li>
+        </ul>
+
+    {% draw_menu sql_raw_result %}
+
+    {% endblock nav %}
+
+    {% block content %}
+    {% endblock content %}
+
+</body>
+</html>
